@@ -61,12 +61,12 @@ struct ARViewContainer: UIViewRepresentable {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.horizontal, .vertical]
         config.environmentTexturing = .automatic
-        
+
         if
             ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
             config.sceneReconstruction = .mesh
         }
-        
+
         arView.session.run(config)
         
         return arView
@@ -77,13 +77,13 @@ struct ARViewContainer: UIViewRepresentable {
         if let modelName = self.modelConfirmedForPlacement{
              print("add model to the scene \(modelName)")
         
-        let filename = modelName + ".usdz"
-        let modelEntity = try!
-            ModelEntity.loadModel(named: filename)
-            let anchorEntity = AnchorEntity(plane: .any)
-            anchorEntity.addChild(modelEntity)
-            uiView.scene.addAnchor(anchorEntity)
-            
+//        let filename = modelName + ".usdz"
+//        let modelEntity = try!
+//            ModelEntity.loadModel(named: filename)
+//            let anchorEntity = AnchorEntity(plan: .any)
+//            anchorEntity.addChild(modelEntity)
+//            uiView.scene.addAnchor(anchorEntity)
+//
             DispatchQueue.main.async {
                 self.modelConfirmedForPlacement = nil
             }
@@ -149,8 +149,8 @@ struct PlacementButtonView: View {
             //Confirm button
             Button(action: {
                 print("Debug: Confirm button")
+                self.modelConfirmedForPlacement = self.seletedModel;
                 self.resetPlacement()
-                self.modelConfirmedForPlacement = self.seletedModel
             }) {
                 Image(systemName: "checkmark")
                     .frame(width: 60, height: 60)
