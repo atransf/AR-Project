@@ -76,15 +76,16 @@ struct ARViewContainer: UIViewRepresentable {
     func updateUIView(_ uiView: ARView, context: Context) {
         if let modelName = self.modelConfirmedForPlacement{
              print("add model to the scene \(modelName)")
-        
-//        let filename = modelName + ".usdz"
-//        let modelEntity = try!
-//            ModelEntity.loadModel(named: filename)
-//            let anchorEntity = AnchorEntity(plan: .any)
-//            anchorEntity.addChild(modelEntity)
-//            uiView.scene.addAnchor(anchorEntity)
-//
-            DispatchQueue.main.async {
+        let filename = modelName + ".usdz"
+        let modelEntity = try!
+            ModelEntity.loadModel(named: filename)
+            let anchorEntity = AnchorEntity(plane: .any)
+            anchorEntity.addChild(modelEntity)
+            
+            uiView.scene.addAnchor(anchorEntity)
+            
+            
+        DispatchQueue.main.async {
                 self.modelConfirmedForPlacement = nil
             }
         
