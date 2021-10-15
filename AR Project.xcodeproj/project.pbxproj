@@ -106,10 +106,10 @@
 		93899D182706C63000AD924A /* AR Project */ = {
 			isa = PBXGroup;
 			children = (
-				93899D452706CB5300AD924A /* Models */,
 				93899D192706C63000AD924A /* AppDelegate.swift */,
 				93899D1B2706C63000AD924A /* ContentView.swift */,
 				93C2ECB02706F8BC004A32D0 /* Model.swift */,
+				93899D452706CB5300AD924A /* Models */,
 				93899D1D2706C63000AD924A /* Experience.rcproject */,
 				93899D1F2706C63100AD924A /* Assets.xcassets */,
 				93899D212706C63100AD924A /* Preview Content */,
